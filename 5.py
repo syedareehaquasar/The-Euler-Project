@@ -7,4 +7,5 @@ def smallestMultiple(upto):
             num *= c
     return num
 
+# There is error in this i have to redo it...
 print(smallestMultiple(10))
