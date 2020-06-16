@@ -3,7 +3,7 @@ def isPrime(n):
         return False
     elif n in [2, 3, 5, 7]:
         return True
-    elif n % 2 == 0 or n % 3 ==0:
+    elif n % 2 == 0 or n % 3 == 0:
         return False
     else:
         r = 5
@@ -21,9 +21,21 @@ def nth_prime(n):
     primes = [2, 3, 5, 7, 11, 13, 17, 19]
     i = 23
     while len(primes) < n:
-        for z in (filter(isPrime, [x for x in range(i,i + 20)])):
+        for z in (filter(isPrime, range(i, i + 20))):
             primes.append(z)
         i += 10
     return primes[n-1]
 
+
+def find_prime_num_poss(n):
+    primes = [2, 3, 5, 7, 11, 13, 17, 19]
+    i = 23
+    while primes[-1] < n:
+        for z in (filter(isPrime, [x for x in range(i, i + 20)])):
+            primes.append(z)
+        i += 10
+    return primes.index(n) + 1
+
+
 print(nth_prime(10001))
+print(find_prime_num_poss(104759))
